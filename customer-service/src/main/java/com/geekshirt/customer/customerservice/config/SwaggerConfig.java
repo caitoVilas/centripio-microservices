@@ -1,4 +1,4 @@
-package com.geekshirt.orderservice.config;
+package com.geekshirt.customer.customerservice.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -8,12 +8,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
-
     @Bean
     public GroupedOpenApi api(){
         return GroupedOpenApi.builder()
-                .group("orders")
-                .packagesToScan("com.geekshirt.orderservice")
+                .group("customers")
+                .packagesToScan("com.geekshirt.customer.customerservice")
                 .build();
     }
 
@@ -22,8 +21,8 @@ public class SwaggerConfig {
         return new OpenAPI()
                 /*.addSecurityItem(new SecurityRequirement().addList(securityScemeName))
                 .components(new Components())*/
-                .info(new Info().title("Gestion Ordenes Geekshirt")
-                        .description("Gestor Ordenes Geekshirt")
+                .info(new Info().title("Gestion Clientes Geekshirt")
+                        .description("Gestor Clientes Geekshirt")
                         .version("v1.0"));
 
     }
