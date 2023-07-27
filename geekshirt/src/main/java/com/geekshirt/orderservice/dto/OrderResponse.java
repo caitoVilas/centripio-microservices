@@ -1,5 +1,6 @@
 package com.geekshirt.orderservice.dto;
 
+import com.geekshirt.orderservice.enums.OrderStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,8 +16,8 @@ import java.time.LocalDateTime;
 @Schema(description = "modelo que representa una orden par las respuestas")
 public class OrderResponse {
 
-    private String orderId;
-    private String status;
+    private Long id;
+    private OrderStatus status;
     private String accountId;
     private Double totalAmount;
     private Double totalTax;

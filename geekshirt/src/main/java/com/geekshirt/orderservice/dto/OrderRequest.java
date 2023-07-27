@@ -1,5 +1,6 @@
 package com.geekshirt.orderservice.dto;
 
+import com.geekshirt.orderservice.enums.OrderStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.util.List;
 @Schema(description = "modelo que representa una orden a guardar")
 public class OrderRequest {
 
-    private String status;
+    private OrderStatus status;
     @Schema(name = "accountId", required = true, example = "1234567")
     private String accountId;
     private Double totalAmount;

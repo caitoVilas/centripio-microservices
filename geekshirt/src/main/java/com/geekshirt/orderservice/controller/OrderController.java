@@ -1,5 +1,6 @@
 package com.geekshirt.orderservice.controller;
 
+import com.geekshirt.orderservice.dto.AccountDTO;
 import com.geekshirt.orderservice.dto.OrderRequest;
 import com.geekshirt.orderservice.dto.OrderResponse;
 import com.geekshirt.orderservice.service.contracts.OrderService;
@@ -25,7 +26,7 @@ public class OrderController {
     @GetMapping
     public ResponseEntity<List<OrderResponse>> getAll(){
         log.info("***** POST endpoint creacion de orden *****");
-        List<OrderResponse> response = null;
+        List<OrderResponse> response = orderService.getAll();
         if (response == null || response.isEmpty())
             return ResponseEntity.noContent().build();
         return ResponseEntity.ok(response);
@@ -40,5 +41,10 @@ public class OrderController {
     public ResponseEntity<OrderResponse> save(@RequestBody OrderRequest request){
         log.info("***** POST endpoint creacion de orden *****");
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.save(request));
+    }
+
+    @GetMapping("/account/{id}")
+    public ResponseEntity<AccountDTO> getAccount(@PathVariable Long id){
+        return ResponseEntity.ok(orderService.getAccount(id));
     }
 }
